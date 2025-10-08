@@ -81,4 +81,3 @@ O plugin **WP Security Scanner PRO** é um desenvolvimento da WPMasters.
 
   * **Autor:** Thomas Marcelino
   * **Site Oficial:** [https://wpmasters.com.br](https://wpmasters.com.br)
-  * **Suporte:** Entre em contato através do nosso site para suporte e dúvidas sobre a versão PRO.
