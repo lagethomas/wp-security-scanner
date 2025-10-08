@@ -1,0 +1,252 @@
+/*
+ * Styles for WP Security Scanner PRO Admin Page
+ * Text Domain: wp-security-scanner
+ */
+
+/* Variáveis de Cores */
+:root {
+    --wpss-primary: #0073aa; /* Azul WP */
+    --wpss-primary-dark: #005a87;
+    --wpss-success: #46b450; /* Verde */
+    --wpss-warning: #ffb900; /* Amarelo */
+    --wpss-error: #dc3232; /* Vermelho */
+    --wpss-bg-light: #f7f7f7;
+    --wpss-border: #c3c4c7;
+    --wpss-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* LAYOUT PRINCIPAL E HEADERS */
+
+.wpss-wrap {
+    max-width: 100%; 
+    padding-right: 20px;
+}
+
+.wpss-header h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0;
+}
+
+.wpss-badge {
+    background: var(--wpss-primary-dark);
+    color: #fff;
+    font-size: 0.7em;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+.wpss-two-column-layout {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px;
+    margin-top: 20px;
+}
+.wpss-main-content {
+    flex: 0 0 calc(70% - 10px); 
+    max-width: calc(70% - 10px);
+    min-width: 300px; 
+}
+.wpss-sidebar {
+    flex: 0 0 calc(30% - 10px); 
+    max-width: calc(30% - 10px);
+    padding: 0;
+}
+
+/* BOX GERAL */
+.wpss-box {
+    background: #fff;
+    border: 1px solid var(--wpss-border);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 15px;
+    box-shadow: var(--wpss-shadow);
+}
+
+
+/* RESPONSIVIDADE */
+@media screen and (max-width: 1024px) {
+    .wpss-main-content, .wpss-sidebar {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* ESTILOS DA SIDEBAR */
+.wpss-sidebar .sidebar-box h4 {
+    margin-top: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: var(--wpss-primary);
+}
+.wpss-sidebar .sidebar-box ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.wpss-sidebar .sidebar-box li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+.wpss-sidebar .sidebar-box a {
+    font-weight: 600;
+}
+
+/* Estilos do Conteúdo Principal */
+.health-check-header {
+    padding: 20px;
+    text-align: center;
+}
+#run-scan {
+    font-size: 18px;
+    padding: 15px 30px;
+    height: auto;
+    background: var(--wpss-primary);
+    border-color: var(--wpss-primary-dark);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+}
+#run-scan:hover {
+    background: var(--wpss-primary-dark);
+    border-color: var(--wpss-primary-dark);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* BARRA DE PROGRESSO */
+#scan-progress-bar {
+    margin-top: 20px;
+    text-align: left;
+    padding: 0 20px; /* Alinhamento do container */
+}
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+.progress-bar-container {
+    height: 10px;
+    background: var(--wpss-bg-light);
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--wpss-border);
+}
+.progress-bar-fill {
+    height: 100%;
+    background: var(--wpss-primary);
+    transition: width 0.4s ease-in-out;
+    border-radius: 5px 0 0 5px;
+}
+
+/* ACORDEÃO */
+#results-accordion-wrapper {
+    margin-top: 20px;
+}
+.accordion-item {
+    margin-bottom: 10px;
+    border: 1px solid var(--wpss-border);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: var(--wpss-shadow);
+}
+.accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: var(--wpss-bg-light);
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background 0.15s ease-in-out;
+    border-bottom: 1px solid var(--wpss-border);
+}
+.accordion-header:hover {
+    background: #f0f0f1;
+}
+.accordion-item:last-child .accordion-header {
+     border-bottom: none;
+}
+.header-title-wrapper {
+    display: flex;
+    align-items: center;
+}
+.header-icon {
+    font-size: 1.2em;
+    margin-right: 15px;
+    width: 25px;
+    text-align: center;
+}
+.toggle-arrow {
+    font-size: 1.2em;
+    transition: transform 0.2s ease-in-out;
+    color: var(--wpss-primary);
+}
+.accordion-header.active .toggle-arrow {
+    transform: rotate(180deg);
+}
+.accordion-content {
+    padding: 15px; 
+    display: none;
+    background: #fff;
+}
+/* ITENS DO SCANNER INTERNOS */
+.scan-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.scan-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.status-icon {
+    font-size: 22px;
+    margin-right: 15px;
+    flex-shrink: 0;
+    margin-top: 0; 
+}
+.status-good { color: var(--wpss-success); }
+.status-warning { color: var(--wpss-warning); }
+.status-error { color: var(--wpss-error); }
+.status-info { color: var(--wpss-primary); }
+.item-content {
+    flex-grow: 1;
+    line-height: 1.5;
+}
+.item-content strong {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 15px;
+}
+.item-details {
+    color: #555;
+    font-size: 13px;
+}
+.recommendation {
+    background: #e6f7ff; 
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    border-left: 5px solid var(--wpss-primary);
+    font-size: 13px;
+}
+.recommendation code {
+    background: #fff;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+    border: 1px solid #ddd;
+}
+
+/* Estilos de Notificação WP Padrão */
+.notice {
+    margin: 10px 0 10px 0 !important;
+}
